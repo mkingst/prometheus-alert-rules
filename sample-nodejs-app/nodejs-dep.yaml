@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mkingst-node-app
+  name: mkingst-node-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mkingst-node-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: mkingst-node-app
+    spec:
+      containers:
+      - image: mkingst14/node-app:nodeapp
+        name: demo-app
+        ports:
+        - containerPort: 3000
